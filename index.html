@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <script src="js/jquery-1.8.3.js"></script>
+        <script src="js/bootstrap-modal.js"></script>
+        <script src="js/bootstrap-transition.js"></script>
+        <script src="js/bootstrap-alert.js"></script>
+        <script src="js/bootstrap-tooltip.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="js/jquery.scrollTo-min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/css/style_common.css" />
+        <link rel="stylesheet" type="text/css" href="css/css/style5.css" />
+        <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+
+        <style>
+            input {width: 40%;}
+            textarea {width: 40%}
+            .cursive {font-family: 'Dancing Script', cursive;}
+        </style>
+        <script>
+            $.validator.setDefaults({
+                submitHandler: function(form) { $('.alert').show(); $('#contact_form').slideUp('slow'); $(form).submit();}
+            });
+            
+            $(document).ready(function(){
+               
+                $('#facebook').tooltip({'title': "Facebook"});
+                $('#mail').tooltip({'title': "E-mail"});
+                $('#twitter').tooltip({'title': "Twitter"});
+
+                $("#contact_form").validate({
+                    rules: {
+                        name: "required",
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        message: "required"
+                    },
+                    messages: {
+                        name: "Please specify your name",
+                        email: {
+                            required: "I need your email address to contact you",
+                            email: "Your email address must be in the format of name@domain.com"
+                        },
+                        message: "Please write a few words for the reason you looking for me"
+                    }
+                });
+
+                $('#projects').click(function(){
+                    $.scrollTo('#myproject', 800);
+                    return false;
+                });
+                $('#home').click(function(){
+                    $.scrollTo('#myprofile', 800);
+                    return false;
+                });
+                $('#contacttab').click(function(){
+                    $.scrollTo('#contact', 800);
+                    return false;
+                });
+                //                $('button').click(function(){
+                //                    console.log('submit');
+                //                    $('.alert').show();
+                //                });
+                $('input').focus(function(){
+                    $('.alert').hide();
+                });
+                $('.alert').hide();
+            });
+            
+        </script>
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse" id="navigation" style="position: fixed;width: 100%; z-index: 10000">
+            <div class="navbar-inner">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Inian Parameshwaran</a>
+                <div class="nav-collapse ">
+                    <ul class="nav pull-right">
+                        <li id="home" class="active"><a href="#">Home</a></li>
+                        <li id="projects" class="active"><a href="#" >Projects</a></li>
+                        <li id="contacttab" class="active"><a href="#">Contact Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container">
+
+        <div  data-spy="scroll" data-target=".navbar" data-offset="0">
+            <div id="myprofile">
+                <br>
+                <br><br><br><br>
+                <div class="row">
+                    <div class="span12 pagination-centered">
+                        <img src="img/me.jpg" width="300" height="300">
+                    </div>
+                </div>
+                <br>
+                <div class="hero-unit">
+                    <div class="row">
+                        <div class="span12 cursive pagination-centered">
+                            <h2>Inian Parameshwaran</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12" align="center">
+                            This is Inian Parameshwaran, a Computer Science geek studying in the National University<br>
+                            of Singapore. I love programming and specifically interested in Systems Security and Parallel Computing. <br>
+                            I love food and enjoy playing computer games,  listening to music, playing football and taking photos!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myproject">
+                <div id="website">
+                    <div class="row"><div class="span12 pull-left"><h4>Website Development </h4></div></div>
+                    <div class="row" >
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/teamie.jpg" widht="250" height="320" />
+                                <div class="modal fade hide" id="teamieModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <b>Teamie</b>
+                                    </div>
+                                    <div class="modal-body">
+                                        I worked in Teamie for a period of six months as a part of my iLead internship. This was my first
+                                        experience in website development and I worked with the Drupal for most part of the internship.
+                                        I built the system of awarding badges to students which compliments their existing gamification system.
+                                        I was also in charge of adding features and fixing bugs in their public <a href="http://www.theteamie.com">website</a>
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>Teamie</h2>
+                                    <p>Web developer at an awesome startup in Singapore.</p>
+                                    <a href="#teamieModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/loveme.jpg" widht="220" height="320" style="width:100%; height:100%"/>
+                                <div class="modal fade hide" id="lovemeModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        Love Me
+                                    </div>
+                                    <div class="modal-body">
+                                        Love, me is a fun mobile web application that is designed for sending cutomized postcards to friends with a personal message.
+                                        It utilizes latest HTML5 and CSS3 features such as canvas, localstorage, and geolocation tagging.
+                                        And the web application is fully responsive to fit for any device size.
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>Love Me</h2>
+                                    <p>A mobile HTML5 application.</p>
+                                    <a href="#lovemeModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/spec.png" widht="200" height="320"/>
+                                <div class="modal fade hide" id="specModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        SPEC
+                                    </div>
+                                    <div class="modal-body">
+                                        SPEC is a personalized website to control and manage electrical appliances in your house. You can control electrical appliances
+                                        like your water heater, airconditioner from our website. SPEC also deeply integrates with Facebook and you can share how much
+                                        electricity you have saved with your Facebook friends.
+                                        <iframe width="420" height="315" src="http://www.youtube.com/embed/FWLXH-sbeJg" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>SPEC</h2>
+                                    <p>A facebook application.</p>
+                                    <a href="#specModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/memoriz.png" widht="200" height="320" />
+                                <div class="modal fade hide" id="memorizModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        Memoriz
+                                    </div>
+                                    <div class="modal-body">
+                                        <a href ="http://www.memoriz.co">Memoriz</a> is a mobile application that enables you to build relationships with your close friends.
+                                        Share what matters with those who matter most.
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>Memoriz</h2>
+                                    <p>My OSM project.</p>
+                                    <a href="#memorizModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                <div id="mobile">
+                    <div class="row"><div class="span12 pull-left"><h4>Mobile Development </h4></div></div>
+                    <div class="row">
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/intraix.png" style="width:70%; height:90%"/>
+                                <div class="modal fade hide" id="intraixModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        Intraix
+                                    </div>
+                                    <div class="modal-body">
+                                        Check out the application <a href="https://itunes.apple.com/sg/app/intraix/id592147295?mt=8"> here </a>
+                                        We built a REST API for the company along with an iOS application. Intraix helps you monitor your energy usage
+                                        by pulling your latest bills from Singapore Power. It also helps you monitor you water and gas expenditure. Users
+                                        also get rewarded for saving energy!
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>Intraix</h2>
+                                    <p>We developed an iOS application for Intraix, a local startup. </p>
+                                    <a href="#intraixModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span3">
+                            <div class="view view-fifth">
+                                <img src="img/security.png" style="width:80%; height:40%"/>
+                                <div class="modal fade hide" id="securityModal" role="dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        2 Factor Authentication
+                                    </div>
+                                    <div class="modal-body">
+                                        We designed designed a secure API which other developers can use to implement two-factor authentication
+                                        system for their website. We also built a sample website which uses our API for two-factor authentication. A accompanying
+                                        Android application was also created which generated one-time tokens which are used to log into the website.
+                                    </div>
+                                </div>
+                                <div class="mask">
+                                    <h2>2 Factor Authentication</h2>
+                                    <p>an mobile applicaiton to act as the second factor of authenticaiton for a secure API that we built. </p>
+                                    <a href="#securityModal" data-toggle="modal" class="info">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div id="other">
+                        <div class="row"><div class="span12 pull-left"><h4>Other projects </h4></div></div>
+                        <div class="row">
+                            <div class="span3">
+                                <div class="view view-fifth">
+                                    <img src="img/rememberme.png" style="width:70%; height:100%"/>
+                                    <div class="modal fade hide" id="rememberModal" role="dialog">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            Remember Me
+                                        </div>
+                                        <div class="modal-body">
+                                            An application for task management for the windows platform, complete with user and developer guides, documentation, and testing.
+                                            Check out the video demonstrating the application below!
+                                            <iframe width="520" height="315" src="http://www.youtube.com/embed/tjxY0XcP3qg" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="mask">
+                                        <h2>Remember Me</h2>
+                                        <p>We built a To-do manager as a WPF application</p>
+                                        <a href="#rememberModal" data-toggle="modal" class="info">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span3">
+                                <div class="view view-fifth">
+                                    <img src="img/basketball.png" style="width:70%; height:100%"/>
+                                    <div class="modal fade hide" id="basketballModal" role="dialog">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            Remember Me
+                                        </div>
+                                        <div class="modal-body">
+                                            A basketball match was simulated between two teams using Message Passing Interface in C. A intelligent
+                                            strategy was used to move the players around the field, based on their strengths and weakness. The game
+                                            also calculates the number of goals scored by each person, number of passes, etc. at the end of the game.
+                                        </div>
+                                    </div>
+                                    <div class="mask">
+                                        <h2>MPI Basketball Game</h2>
+                                        <p>A basketball game was simulated using the MPI in C</p>
+                                        <a href="#basketballModal" data-toggle="modal" class="info">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div id="contact">
+                    <div class="span12 pagination-centered ">
+                        <h4>Contact Me: </h4><br>
+                        <a href="https://www.facebook.com/inianp"><img id="facebook" src ="img/facebook.png" /></a>
+                        <a href="mailto:inian@nus.edu.sg"><img id="mail"src ="img/mail.png" /></a>
+                        <a href="https://twitter.com/everConfusedGuy"><img id="twitter" src ="img/twitter.png" /></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="span12 pagination-centered">
+                    <div class="content_title">
+                        <h5>You can message me below!</h5>
+                    </div>
+                    <div class="alert fade in">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        Thank you for your message!!  I will get in touch with you soon :)
+                    </div>
+                    <form action="submit.php" id="contact_form" method="post" novalidate="novalidate">
+                        <input type="text" name="name" class="required left" placeholder="Enter your name.."><br>
+                        <input type="text" name="email" class="required left" placeholder="Your e-mail address so I can reply.."><br>
+                        <textarea name="message" rows="10" cols="70" class="required" placeholder="Your message ..."></textarea><br><br>
+                        <button name="submit" class="btn-primary" type="submit"> Send </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><hr>
+
+    </div>
+</body>
+</html>
